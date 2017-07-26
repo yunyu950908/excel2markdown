@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <style type=text/css>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu {
+            margin: 20px;
+            width: 100px;
+            border: 1px solid #333;
+            background: lightgray;
+            text-align: center;
+        }
+
+        .lv1 > a {
+            display: block;
+            padding: 10px 0;
+            border-top: 1px solid #333;
+        }
+
+        .lv1:first-child > a {
+            border: none;
+        }
+
+        .lv2 {
+            background: lightcyan;
+            /*position: relative;*/
+            /*top: 10px;*/
+        }
+
+        .lv2 > li {
+            padding: 5px 0;
+            border-top: 1px dotted #333;
+
+        }
+
+        .current {
+            background: #fff000
+        }
+
+        .lv1 > ul {
+            display: none;
+        }
+    </style>
+    <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul class="menu">
+        <li class="lv1">
+            <a href="">我是分类1</a>
+            <ul class="lv2">
+                <li><a href="">我是内容1</a></li>
+                <li><a href="">我是内容1</a></li>
+                <li><a href="">我是内容1</a></li>
+                <li><a href="">我是内容1</a></li>
+            </ul>
+        </li>
+        <li class="lv1">
+            <a href="">我是分类2</a>
+            <ul class="lv2">
+                <li><a href="">我是内容2</a></li>
+                <li><a href="">我是内容2</a></li>
+                <li><a href="">我是内容2</a></li>
+                <li><a href="">我是内容2</a></li>
+            </ul>
+        </li>
+        <li class="lv1">
+            <a href="">我是分类3</a>
+            <ul class="lv2">
+                <li><a href="">我是内容3</a></li>
+                <li><a href="">我是内容3</a></li>
+                <li><a href="">我是内容3</a></li>
+                <li><a href="">我是内容3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type=text/javascript>
+    $("a").click(function (e) {
+        e.preventDefault();
+    })
+
+    $(".lv1 > a").click(function () {
+        $(this).toggleClass("current").next().toggle().parent().siblings().children("a").removeClass("current").next().hide();
+    })
+
+
+</script>
+</body>
+</html>
